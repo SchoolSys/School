@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.CourseTableMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.CourseTable">
+    <id column="ctable_id" jdbcType="VARCHAR" property="id" />
+    <result column="ctable_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="ctable_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="ctable_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="ctable_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="ctable_course_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="ctable_class_id" jdbcType="VARCHAR" property="classId" />-->
+    <!--<result column="ctable_stu_id" jdbcType="VARCHAR" property="stuId" />-->
+    <result column="ctable_week" jdbcType="VARCHAR" property="week" />
+    <!--<result column="ctable_teach_id" jdbcType="VARCHAR" property="teachId" />-->
+    <result column="ctable_start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="ctable_end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="ctable_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="courId" column="ctable_course_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="classId" column="ctable_class_id"
+                 javaType="com.school.pojo.Class">
+
+    </association>
+
+    <association property="stuId" column="ctable_stu_id"
+                 javaType="com.school.pojo.Student">
+
+    </association>
+
+    <association property="teachId" column="ctable_teach_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ctable_id, ctable_create_by, ctable_create_time, ctable_update_by, ctable_update_time, 
+    ctable_course_id, ctable_class_id, ctable_stu_id, ctable_week, ctable_tea_id, ctable_start_time, 
+    ctable_end_time, ctable_delete
+  </sql>
+
+</mapper>

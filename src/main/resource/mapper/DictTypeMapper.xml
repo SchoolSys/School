@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.DictTypeMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.DictType">
+    <id column="dict_id" jdbcType="VARCHAR" property="id" />
+    <result column="dict_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="dict_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="dict_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="dict_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="dict_code" jdbcType="VARCHAR" property="code" />
+    <result column="dict_value" jdbcType="VARCHAR" property="value" />
+    <result column="dict_name" jdbcType="VARCHAR" property="name" />
+    <result column="dict_delete" jdbcType="TINYINT" property="delete" />
+
+
+
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    dict_id, dict_create_by, dict_create_time, dict_update_by, dict_update_time, dict_code, 
+    dict_value, dict_name, dict_delete
+  </sql>
+
+</mapper>

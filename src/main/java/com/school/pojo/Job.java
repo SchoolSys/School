@@ -19,7 +19,7 @@ public class Job implements Serializable {
 
     private String updateTime;
 
-    private Teacher teaId;
+    private Teacher teachId;
 
     private Academy acaId;
 

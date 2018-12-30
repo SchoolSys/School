@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ResourceMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Resource">
+    <id column="resource_id" jdbcType="VARCHAR" property="id" />
+    <result column="resource_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="resource_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="resource_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="resource_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="resource_column_id" jdbcType="VARCHAR" property="columnId" />-->
+    <!--<result column="resource_user_id" jdbcType="VARCHAR" property="userId" />-->
+    <result column="resource_title" jdbcType="VARCHAR" property="title" />
+    <result column="resource_image" jdbcType="VARCHAR" property="image" />
+    <result column="resource_ispublic" jdbcType="VARCHAR" property="isPublic" />
+    <result column="resource_istop" jdbcType="VARCHAR" property="isTop" />
+    <result column="resource_visits" jdbcType="INTEGER" property="visits" />
+    <result column="resource_thumbup" jdbcType="INTEGER" property="thumbup" />
+    <result column="resource_comment" jdbcType="INTEGER" property="comment" />
+    <result column="resource_state" jdbcType="VARCHAR" property="state" />
+    <!--<result column="resource_channel_id" jdbcType="VARCHAR" property="channelId" />-->
+    <result column="resource_url" jdbcType="VARCHAR" property="url" />
+    <result column="resource_type" jdbcType="VARCHAR" property="type" />
+    <result column="resource_content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="resource_delete" jdbcType="TINYINT" property="delete" />
+
+      <association property="columnId" column="resource_column_id"
+                   javaType="com.school.pojo.Column">
+
+      </association>
+
+      <association property="userId" column="resource_user_id"
+                   javaType="com.school.pojo.User">
+
+      </association>
+
+      <association property="channelId" column="resource_channel_id"
+                   javaType="com.school.pojo.Channel">
+
+      </association>
+
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    resource_id, resource_create_by, resource_create_time, resource_update_by, resource_update_time, 
+    resource_column_id, resource_useresource_id, resource_title, resource_image, resource_ispublic, 
+    resource_istop, resource_visits, resource_thumbup, resource_comment, resource_state, 
+    resource_channel_id, resource_url, resource_type, resource_delete
+  </sql>
+  <sql id="Blob_Column_List">
+    resource_content
+  </sql>
+
+</mapper>

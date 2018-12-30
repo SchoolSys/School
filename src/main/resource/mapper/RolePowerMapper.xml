@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.RolePowerMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.RolePower">
+    <id column="rpower_id" jdbcType="VARCHAR" property="id" />
+    <result column="rpower_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="rpower_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="rpower_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="rpower_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="rpower_power_id" jdbcType="VARCHAR" property="powerId" />-->
+    <!--<result column="rpower_role_id" jdbcType="VARCHAR" property="roleId" />-->
+    <result column="rpower_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="powerId" column="rpower_power_id"
+                 javaType="com.school.pojo.Power">
+
+    </association>
+
+    <association property="roleId" column="rpower_role_id"
+                 javaType="com.school.pojo.Role">
+
+    </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    rpower_id, rpower_create_by, rpower_create_time, rpower_update_by, rpower_update_time, 
+    rpower_power_id, rpower_role_id, rpower_delete
+  </sql>
+
+</mapper>

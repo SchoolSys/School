@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ItemsMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Items">
+    <result column="item_id" jdbcType="VARCHAR" property="id" />
+    <result column="item_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="item_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="item_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="item_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="item_name" jdbcType="VARCHAR" property="name" />
+    <result column="item_start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="item_end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="item_state" jdbcType="TINYINT" property="state" />
+    <result column="item_delete" jdbcType="TINYINT" property="delete" />
+
+
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    item_id, item_create_by, item_create_time, item_update_by, item_update_time, item_name, 
+    item_start_time, item_end_time, item_state, item_delete
+  </sql>
+</mapper>

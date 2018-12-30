@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.AcademyMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Academy">
+    <id column="acad_id" jdbcType="VARCHAR" property="id" />
+    <result column="acad_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="acad_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="acad_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="acad_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="acad_name" jdbcType="VARCHAR" property="name" />
+    <result column="acad_address" jdbcType="LONGVARCHAR" property="address" />
+    <result column="acad_delete" jdbcType="TINYINT" property="delete" />
+      <!-- 一个学院对应着一个学校 , 即一对一 本来想是一个学校对 多个学院的 后面因为学校这个类没有加 acad这个属性,就干脆用一对一了-->
+      <association property="schoolId" column="acad_school_id"
+                   javaType="com.school.pojo.School">
+          <id column="school_id" property="id" />
+          <result column="school_create_by" jdbcType="VARCHAR" property="createBy" />
+          <result column="school_create_time" jdbcType="VARCHAR" property="createTime" />
+          <result column="school_update_by" jdbcType="VARCHAR" property="updateBy" />
+          <result column="school_update_time" jdbcType="VARCHAR" property="updateTime" />
+          <result column="school_name" jdbcType="VARCHAR" property="name" />
+          <result column="school_address" jdbcType="VARCHAR" property="address" />
+          <result column="school_province" jdbcType="VARCHAR" property="province" />
+          <!-- 这里逆向工程将mediumtext转为了LongVarchar,就先放着-->
+          <result column="school_city" jdbcType="LONGVARCHAR" property="city" />
+          <result column="school_delete" jdbcType="TINYINT" property="delete" />
+      </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    acad_id, acad_create_by, acad_create_time, acad_update_by, acad_update_time, acad_name, 
+    acad_school_id, acad_delete
+  </sql>
+  <sql id="Blob_Column_List">
+    acad_address
+  </sql>
+
+</mapper>

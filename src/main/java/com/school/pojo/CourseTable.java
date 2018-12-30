@@ -19,7 +19,7 @@ public class CourseTable implements Serializable {
 
     private String updateTime;
 
-    private CourseInfo courseId;
+    private CourseInfo courId;
 
     private Class classId;
 

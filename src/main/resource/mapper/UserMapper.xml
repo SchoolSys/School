@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.User">
+
+    <id column="user_id" jdbcType="VARCHAR" property="id" />
+    <result column="user_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="user_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="user_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="user_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="user_wxid" jdbcType="VARCHAR" property="wxId" />
+    <result column="user_accout" jdbcType="VARCHAR" property="accout" />
+    <result column="user_password" jdbcType="VARCHAR" property="password" />
+    <!--<result column="user_role_id" jdbcType="VARCHAR" property="roleId" />-->
+    <result column="user_nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="user_sex" jdbcType="TINYINT" property="sex" />
+    <result column="user_interest" jdbcType="VARCHAR" property="interest" />
+    <result column="user_fans_count" jdbcType="INTEGER" property="fansCount" />
+    <result column="user_follow_count" jdbcType="INTEGER" property="followCount" />
+    <result column="user_regdate" jdbcType="VARCHAR" property="regdate" />
+    <!--<result column="user_school_id" jdbcType="LONGVARCHAR" property="schoolId" />-->
+    <result column="user_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="roleId" column="user_role_id"
+    javaType="com.school.pojo.Role">
+
+    </association>
+
+    <association property="schoolId" column="user_school_id"
+    javaType="com.school.pojo.School">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    user_id, user_create_by, user_create_time, user_update_by, user_update_time, user_wxid, 
+    user_accout, user_password, user_role, user_nickname, user_sex, user_interest, user_fanscout, 
+    user_follow_count, user_regdate, user_delete
+  </sql>
+  <sql id="Blob_Column_List">
+    user_school
+  </sql>
+
+</mapper>

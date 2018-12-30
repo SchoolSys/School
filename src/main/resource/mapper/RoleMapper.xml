@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Role">
+    <id column="role_id" jdbcType="VARCHAR" property="id" />
+    <result column="role_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="role_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="role_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="role_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="role_role" jdbcType="VARCHAR" property="role" />
+    <result column="role_delete" jdbcType="TINYINT" property="delete" />
+
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    role_id, role_create_by, role_create_time, role_update_by, role_update_time, role_role, 
+    role_delete
+  </sql>
+
+</mapper>

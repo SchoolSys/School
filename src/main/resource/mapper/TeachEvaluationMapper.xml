@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.TeachEvaluationMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.TeachEvaluation">
+    <id column="eval_id" jdbcType="VARCHAR" property="id" />
+    <result column="eval_creaeval_by" jdbcType="VARCHAR" property="creaevalBy" />
+    <result column="eval_creaeval_time" jdbcType="VARCHAR" property="creaevalTime" />
+    <result column="eval_updaeval_by" jdbcType="VARCHAR" property="updaevalBy" />
+    <result column="eval_updaeval_time" jdbcType="VARCHAR" property="updaevalTime" />
+    <!--<result column="eval_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="eval_cour_name" jdbcType="VARCHAR" property="courName" />-->
+    <!--<result column="eval_teach_id" jdbcType="VARCHAR" property="teachId" />-->
+    <!--<result column="eval_teach_name" jdbcType="VARCHAR" property="teachName" />-->
+    <result column="eval_please" jdbcType="INTEGER" property="evalPlease" />
+    <result column="eval_flag" jdbcType="TINYINT" property="evalFlag" />
+    <result column="eval_delete" jdbcType="TINYINT" property="evalDelete" />
+
+    <association property="courId" column="eval_cour_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="courName" column="eval_cour_name"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="teachId" column="eval_teach_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+
+    <association property="teachName" column="eval_teach_name"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    eval_id, eval_creaeval_by, eval_creaeval_time, eval_updaeval_by, eval_updaeval_time, 
+    eval_cour_id, eval_cour_name, eval_tea_id, eval_tea_name, eval_please, eval_flag, 
+    eval_delete
+  </sql>
+
+</mapper>

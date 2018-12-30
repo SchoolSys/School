@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.JobMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Job">
+    <id column="job_id" jdbcType="VARCHAR" property="id" />
+    <result column="job_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="job_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="job_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="job_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="job_teach_id" jdbcType="VARCHAR" property="teachId" />-->
+    <!--<result column="job_aca_id" jdbcType="VARCHAR" property="acaId" />-->
+    <result column="job_job" jdbcType="VARCHAR" property="job" />
+    <!--<result column="job_aca_name" jdbcType="VARCHAR" property="acaName" />-->
+    <result column="job_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="teachId" column="job_teach_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+
+    <association property="acaId" column="job_aca_id"
+                 javaType="com.school.pojo.Academy">
+
+    </association>
+
+    <association property="acaName" column="job_aca_Name"
+                 javaType="com.school.pojo.Academy">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    job_id, job_create_by, job_create_time, job_update_by, job_update_time, job_tea_id, 
+    job_aca_id, job_job, job_aca_name, job_delete
+  </sql>
+</mapper>

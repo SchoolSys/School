@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.CourseRoomMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.CourseRoom">
+    <id column="croom_id" jdbcType="VARCHAR" property="id" />
+    <result column="croom_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="croom_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="croom_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="croom_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="croom_name" jdbcType="VARCHAR" property="name" />
+    <result column="croom_state" jdbcType="TINYINT" property="state" />
+    <result column="croom_delete" jdbcType="TINYINT" property="delete" />
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    croom_id, croom_create_by, croom_create_time, croom_update_by, croom_update_time, 
+    croom_name, croom_state, croom_delete
+  </sql>
+
+</mapper>
