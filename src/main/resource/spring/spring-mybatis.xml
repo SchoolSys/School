@@ -20,7 +20,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!--mybatis核心配置文件的位置-->
         <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
-        <property name="mapperLocations" value="classpath:mapper/TempMapper.xml" />
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
         <property name="typeAliasesPackage" value="com.school" />
 
     </bean>
