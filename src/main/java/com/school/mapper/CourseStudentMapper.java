@@ -1,10 +1,10 @@
 package com.school.mapper;
 
-import com.school.pojo.CourseStudent;
-
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
+/**
+* @Description: 课程-学生接口
+* @Author: Tonghuan
+* @Date: 2019/1/3
+*/
 public interface CourseStudentMapper {
 
 }
