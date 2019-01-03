@@ -2,7 +2,7 @@ package com.school.pojo;
 
 import java.io.Serializable;
 /**
-* @Description: 考勤信息
+* @Description: 考勤信息,这个对应的mapper没在,先跳过
 * @Param:
 * @return:
 * @Author: Tonghuan

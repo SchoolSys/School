@@ -5,11 +5,11 @@ import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 /**
-* @Description: 学院
-* @Author: Tonghuan
-* @Date: 2018/12/26
-*/
-public class Academy implements Serializable{
+ * @Description: 学校
+ * @Author: Tonghuan
+ * @Date: 2018/12/26
+ */
+public class School implements Serializable{
     private String id;
 
     private String createBy;
@@ -22,11 +22,14 @@ public class Academy implements Serializable{
 
     private String name;
 
-    private School schoolId;
+    private String address;
+
+    private String province;
+
+    private String city;
 
     private Byte delete;
 
-    private String address;
 
     public String getId() {
         return id;
@@ -76,20 +79,28 @@ public class Academy implements Serializable{
         this.name = name;
     }
 
-    public School getSchoolId() {
-        return schoolId;
-    }
-
-    public void setSchoolId(School schoolId) {
-        this.schoolId = schoolId;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public Byte getDelete() {

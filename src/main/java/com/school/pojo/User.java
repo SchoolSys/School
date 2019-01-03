@@ -25,7 +25,7 @@ public class User implements Serializable {
 
     private String password;
 
-    private Role role;
+    private Role roleId;
 
     private String nickName;
 
@@ -41,7 +41,7 @@ public class User implements Serializable {
 
     private Byte delete;
 
-    private String school;
+    private School schoolId;
 
     public String getId() {
         return id;
@@ -107,12 +107,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Role getRoleId() {
+        return roleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(Role roleId) {
+        this.roleId = roleId;
+    }
+
+    public School getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(School schoolId) {
+        this.schoolId = schoolId;
     }
 
     public String getNickName() {
@@ -171,11 +179,4 @@ public class User implements Serializable {
         this.delete = delete;
     }
 
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
 }

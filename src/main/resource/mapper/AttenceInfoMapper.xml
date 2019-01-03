@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.AttenceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.AttenceInfo">
+    <id column="attence_info_id" jdbcType="VARCHAR" property="id" />
+    <result column="attence_info_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="attence_info_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="attence_info_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="attence_info_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="attence_info_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="attence_info_stu_id" jdbcType="VARCHAR" property="stuId" />-->
+    <result column="attence_info_time" jdbcType="VARCHAR" property="time" />
+    <result column="attence_info_flag" jdbcType="TINYINT" property="flag" />
+    <result column="attence_info_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="courId" column="attence_info_cour_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="stuId" column="attence_info_stu_id"
+                 javaType="com.school.pojo.Student">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+   attence_info_id, attence_info_create_by, attence_info_create_time, attence_info_update_by,
+    attence_info_update_time, attence_info_cour_id, attence_info_stu_id, attence_info_time, attence_info_flag,
+   attence_info_delete
+  </sql>
+
+</mapper>

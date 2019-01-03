@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.CourseStudentMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.CourseStudent">
+    <id column="cstudent_id" jdbcType="VARCHAR" property="id" />
+    <result column="cstudent_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="cstudent_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="cstudent_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="cstudent_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="cstudent_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="cstudent_stu_id" jdbcType="VARCHAR" property="stuId" />-->
+    <result column="cstudent_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="courId" column="cstudent_cour_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="stuId" column="cstudent_stu_id"
+                   javaType="com.school.pojo.Student">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    cstudent_id, cstudent_create_by, cstudent_create_time, cstudent_update_by, cstudent_update_time, 
+    cstudent_cour_id, cstudent_stu_id, cstudent_delete
+  </sql>
+
+</mapper>

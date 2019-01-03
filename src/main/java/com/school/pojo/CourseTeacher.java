@@ -21,7 +21,7 @@ public class CourseTeacher implements Serializable {
 
     private CourseInfo courId;
 
-    private Teacher teaId;
+    private Teacher teachId;
 
     private Byte delete;
 

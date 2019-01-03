@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ExaminationhallInfoMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.ExaminationhallInfo">
+    <id column="exinfo_id" jdbcType="VARCHAR" property="id" />
+    <result column="exinfo_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="exinfo_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="exinfo_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="exinfo_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="exinfo_stu_id" jdbcType="VARCHAR" property="stuId" />-->
+    <!--<result column="exinfo_stu_name" jdbcType="VARCHAR" property="stuName" />-->
+    <!--<result column="exinfo_tf_id" jdbcType="VARCHAR" property="testInfoId" />-->
+    <result column="exinfo_seat" jdbcType="INTEGER" property="seat" />
+    <result column="exinfo_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="stuId" column="exinfo_stu_id"
+                 javaType="com.school.pojo.Student">
+
+    </association>
+
+    <association property="stuName" column="exinfo_stu_Name"
+                 javaType="com.school.pojo.Student">
+
+    </association>
+
+    <association property="testInfoId" column="exinfo_tf_id"
+                 javaType="com.school.pojo.TestInfo">
+
+    </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    exinfo_id, exinfo_create_by, exinfo_create_time, exinfo_update_by, exinfo_update_time, 
+    exinfo_stu_id, exinfo_stu_name, exinfo_tf_id, exinfo_seat, exinfo_delete
+  </sql>
+
+</mapper>

@@ -247,7 +247,7 @@ CREATE TABLE `sys_course_table` (
   `ctable_class_id` varchar(36) NOT NULL COMMENT '所属班级id|李童欢|2018-12-20',
   `ctable_stu_id` varchar(36) NOT NULL COMMENT '学生id|李童欢|2018-12-20',
   `ctable_week` varchar(25) NOT NULL COMMENT '星期|李童欢|2018-12-20',
-  `ctable_tea_id` varchar(36) NOT NULL COMMENT '任课教师id|李童欢|2018-12-20',
+  `ctable_teach_id` varchar(36) NOT NULL COMMENT '任课教师id|李童欢|2018-12-20',
   `ctable_start_time` varchar(25) NOT NULL COMMENT '开始时间|李童欢|2018-12-20',
   `ctable_end_time` varchar(25) NOT NULL COMMENT '结束时间|李童欢|2018-12-20',
   `ctable_delete` tinyint(4) DEFAULT NULL COMMENT '是否删除 0:删除 1:不删除 ||李童欢|2018-12-20',
@@ -309,7 +309,7 @@ CREATE TABLE `sys_course_teacher` (
   `coteach_update_by` varchar(36) DEFAULT NULL COMMENT '更新人|李童欢|2018-12-20',
   `coteach_update_time` varchar(25) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
   `coteach_cour_id` varchar(36) NOT NULL COMMENT '课程id|李童欢|2018-12-20',
-  `coteach_tea_id` varchar(36) NOT NULL COMMENT '教师id|李童欢|2018-12-20',
+  `coteach_teach_id` varchar(36) NOT NULL COMMENT '教师id|李童欢|2018-12-20',
   `coteach_delete` tinyint(4) DEFAULT NULL COMMENT '是否删除 0:删除 1:不删除 |李童欢|2018-12-20',
   PRIMARY KEY (`coteach_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='教务管理|课程-教师表|李童欢|2018-12-20';
@@ -412,7 +412,7 @@ CREATE TABLE `sys_job` (
   `job_create_time` varchar(25) DEFAULT NULL COMMENT '创建时间|李童欢|2018-12-20',
   `job_update_by` varchar(36) DEFAULT NULL COMMENT '更新人|李童欢|2018-12-20',
   `job_update_time` varchar(25) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
-  `job_tea_id` varchar(36) NOT NULL COMMENT '教师id|李童欢|2018-12-20',
+  `job_teach_id` varchar(36) NOT NULL COMMENT '教师id|李童欢|2018-12-20',
   `job_aca_id` varchar(36) NOT NULL COMMENT '所属学院id|李童欢|2018-12-20',
   `job_job` varchar(50) NOT NULL COMMENT '职务|李童欢|2018-12-20',
   `job_aca_name` varchar(36) NOT NULL COMMENT '学院名称|李童欢|2018-12-20',
@@ -545,7 +545,7 @@ CREATE TABLE `sys_score` (
   `score_update_by` char(10) DEFAULT NULL COMMENT '更新人|李童欢|2018-12-20',
   `score_update_time` char(10) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
   `score_stu_id` varchar(36) NOT NULL COMMENT '|李童欢|2018-12-20',
-  `score_cou_id` varchar(36) NOT NULL COMMENT '|李童欢|2018-12-20',
+  `score_cour_id` varchar(36) NOT NULL COMMENT '|李童欢|2018-12-20',
   `score_pea_grade` int(11) NOT NULL COMMENT '|李童欢|2018-12-20',
   `score_pnd_grade` int(11) NOT NULL COMMENT '|李童欢|2018-12-20',
   `score_syn_grade` int(11) NOT NULL COMMENT '|李童欢|2018-12-20',
@@ -617,7 +617,7 @@ CREATE TABLE `sys_teacher` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `sys_teachinfo`
+-- Table structure for `sys_attence_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_attence_info`;
 CREATE TABLE `sys_attence_info` (
@@ -650,10 +650,10 @@ CREATE TABLE `sys_teach_evaluation` (
   `eval_updaeval_time` varchar(25) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
   `eval_cour_id` varchar(36) NOT NULL COMMENT '课程id|李童欢|2018-12-20',
   `eval_cour_name` varchar(36) NOT NULL COMMENT '课程名|李童欢|2018-12-20',
-  `eval_tea_id` varchar(36) NOT NULL COMMENT '教室id李童欢|2018-12-20',
-  `eval_tea_name` varchar(36) NOT NULL COMMENT '教室名|李童欢|2018-12-20',
+  `eval_teach_id` varchar(36) NOT NULL COMMENT '教师id|李童欢|2018-12-20',
+  `eval_teach_name` varchar(36) NOT NULL COMMENT '教师名|李童欢|2018-12-20',
   `eval_please` int(11) NOT NULL COMMENT '满意度|李童欢|2018-12-20',
-  `eval_flag` tinyint(4) NOT NULL COMMENT '是否点评,0:点评 1未点评李童欢|2018-12-20',
+  `eval_flag` tinyint(4) NOT NULL COMMENT '是否点评,0:点评 1未点评|李童欢|2018-12-20',
   `eval_delete` tinyint(4) DEFAULT NULL COMMENT '是否删除 0:删除 1:不删除|李童欢|2018-12-20',
   PRIMARY KEY (`eval_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='教务管理|教学考评表|李童欢|2018-12-20';
@@ -695,20 +695,20 @@ CREATE TABLE `sys_user` (
   `user_create_time` varchar(25) DEFAULT NULL COMMENT '创建时间|李童欢|2018-12-20',
   `user_update_by` varchar(25) DEFAULT NULL COMMENT '更新人|李童欢|2018-12-20',
   `user_update_time` varchar(25) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
-  `user_school` mediumtext NOT NULL COMMENT '学校|李童欢|2018-12-20',
+  `user_school_id` varchar(36) NOT NULL COMMENT '学校id|李童欢|2018-12-20',
   `user_wxid` varchar(100) NOT NULL COMMENT '微信Id|李童欢|2018-12-20',
   `user_accout` varchar(20) NOT NULL COMMENT '账号|李童欢|2018-12-20',
   `user_password` varchar(20) NOT NULL COMMENT '密码|李童欢|2018-12-20',
-  `user_role` varchar(30) NOT NULL COMMENT '角色|李童欢|2018-12-20',
+  `user_role_id` varchar(36) NOT NULL COMMENT '角色id|李童欢|2018-12-20',
   `user_nickname` varchar(50) NOT NULL COMMENT '昵称|李童欢|2018-12-20',
   `user_sex` tinyint(4) NOT NULL COMMENT '性别 0 : 男 1 女|李童欢|2018-12-20',
   `user_interest` varchar(100) NOT NULL COMMENT '兴趣|李童欢|2018-12-20',
-  `user_fanscount` int(11) NOT NULL COMMENT '粉丝数|李童欢|2018-12-20',
+  `user_fans_count` int(11) NOT NULL COMMENT '粉丝数|李童欢|2018-12-20',
   `user_follow_count` int(11) NOT NULL COMMENT '关注数|李童欢|2018-12-20',
   `user_regdate` varchar(25) NOT NULL COMMENT '注册时间|李童欢|2018-12-20',
   `user_delete` tinyint(4) DEFAULT NULL COMMENT '是否删除 0:删除 1:不删除 |李童欢|2018-12-20',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户模块|用户表|';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户模块|用户表|李童欢|2018-12-20';
 
 -- ----------------------------
 -- Records of sys_user
@@ -724,8 +724,8 @@ CREATE TABLE `sys_user_role` (
   `urole_create_time` varchar(25) DEFAULT NULL COMMENT '创建时间|李童欢|2018-12-20',
   `urole_update_by` varchar(36) DEFAULT NULL COMMENT '更新人|李童欢|2018-12-20',
   `urole_update_time` varchar(25) DEFAULT NULL COMMENT '更新时间|李童欢|2018-12-20',
-  `urole_u_id` varchar(36) NOT NULL COMMENT '用户id|李童欢|2018-12-20',
-  `urole_r_id` varchar(36) DEFAULT NULL COMMENT '角色id|李童欢|2018-12-20',
+  `urole_user_id` varchar(36) NOT NULL COMMENT '用户id|李童欢|2018-12-20',
+  `urole_role_id` varchar(36) DEFAULT NULL COMMENT '角色id|李童欢|2018-12-20',
   `urole_delete` tinyint(4) DEFAULT NULL COMMENT '是否删除 0:删除 1:不删除 |李童欢|2018-12-20',
   PRIMARY KEY (`urole_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户|用户-角色表|李童欢|2018-12-20';
@@ -733,3 +733,24 @@ CREATE TABLE `sys_user_role` (
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+
+drop table if exists sys_school;
+
+/*==============================================================*/
+/* Table: sys_school                                            */
+/*==============================================================*/
+create table sys_school
+(
+   school_id            varchar(36) not null comment '学校Id|李童欢|2018-12-20',
+   school_create_by     varchar(36) comment '创建人|李童欢|2018-12-20',
+   school_create_time   varchar(25) comment '创建时间|李童欢|2018-12-20',
+   school_update_by     varchar(36) comment '更新人|李童欢|2018-12-20',
+   school_update_time   varchar(25) not null comment '更新时间|李童欢|2018-12-20',
+   school_name          varchar(50) NOT NULL COMMENT '名称|李童欢|2018-12-20',
+   school_address       mediumtext not null comment '地址|李童欢|2018-12-20',
+   school_province      varchar(50) not null comment '省份|李童欢|2018-12-20',
+   school_city          varchar(50) not null comment '城市|李童欢|2018-12-20',
+   school_delete        tinyint comment '是否删除 0:删除 1 不删除|李童欢|2018-12-20',
+   
+   primary key (school_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='基本信息|学校表|李童欢|2018-12-20';

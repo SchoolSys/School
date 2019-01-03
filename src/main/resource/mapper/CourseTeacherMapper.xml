@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.CourseTeacherMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.CourseTeacher">
+    <id column="coteach_id" jdbcType="VARCHAR" property="id" />
+    <result column="coteach_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="coteach_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="coteach_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="coteach_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="coteach_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="coteach_teach_id" jdbcType="VARCHAR" property="teachId" />-->
+    <result column="coteach_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="courId" column="coteach_cour_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="teachId" column="coteach_teach_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+
+  </resultMap>
+
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    coteach_id, coteach_create_by, coteach_create_time, coteach_update_by, coteach_update_time, 
+    coteach_cour_id, coteach_tea_id, coteach_delete
+  </sql>
+
+</mapper>

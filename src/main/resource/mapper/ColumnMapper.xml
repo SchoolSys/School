@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ColumnMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Column">
+    <id column="column_id" jdbcType="VARCHAR" property="id" />
+    <result column="column_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="column_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="column_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="column_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="column_name" jdbcType="VARCHAR" property="name" />
+    <result column="column_summary" jdbcType="VARCHAR" property="summary" />
+    <!--<result column="column_user_id" jdbcType="VARCHAR" property="userId" />-->
+    <result column="column_apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="column_check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="column_state" jdbcType="TINYINT" property="state" />
+    <result column="column_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="userId" column="column_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    column_id, column_create_by, column_create_time, column_update_by, column_update_time, 
+    column_name, column_summary, column_user_id, column_apply_time, column_check_time, 
+    column_state, column_delete
+  </sql>
+</mapper>

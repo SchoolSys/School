@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.LessonAddressMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.LessonAddress">
+    <id column="addr_id" jdbcType="VARCHAR" property="id" />
+    <result column="addr_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="addr_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="addr_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="addr_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="addr_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <!--<result column="addr_cr_id" jdbcType="VARCHAR" property="crId" />-->
+    <!--<result column="addr_class_id" jdbcType="VARCHAR" property="classId" />-->
+    <result column="addr_delete" jdbcType="TINYINT" property="delete" />
+
+      <association property="courId" column="addr_cour_id"
+                   javaType="com.school.pojo.CourseInfo">
+
+      </association>
+
+      <association property="crId" column="addr_cr_id"
+                   javaType="com.school.pojo.CourseRoom">
+
+      </association>
+
+      <association property="classId" column="addr_class_id"
+                   javaType="com.school.pojo.Class">
+
+      </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    addr_id, addr_create_by, addr_create_time, addr_update_by, addr_update_time, addr_cour_id, 
+    addr_cr_id, addr_class_id, addr_delete
+  </sql>
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Teacher">
+    <id column="teach_id" jdbcType="VARCHAR" property="id" />
+    <result column="teach_create_by" jdbcType="VARBINARY" property="createBy" />
+    <result column="teach_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="teach_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="teach_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="teach_name" jdbcType="VARCHAR" property="name" />
+    <result column="teach_sex" jdbcType="TINYINT" property="sex" />
+    <result column="teach_mobile" jdbcType="BIGINT" property="mobile" />
+    <!--<result column="teach_aca_id" jdbcType="VARCHAR" property="acaId" />-->
+    <result column="teach_email" jdbcType="VARCHAR" property="email" />
+    <result column="teach_nation" jdbcType="VARCHAR" property="nation" />
+    <result column="teach_birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="teach_admission_time" jdbcType="VARCHAR" property="admissionTime" />
+    <result column="teach_identity" jdbcType="VARCHAR" property="identity" />
+    <result column="teach_positional" jdbcType="VARCHAR" property="positional" />
+    <result column="teach_office" jdbcType="VARCHAR" property="office" />
+    <result column="teach_delete" jdbcType="TINYINT" property="delete" />
+      <association property="acaId" column="teach_aca_id"
+                   javaType="com.school.pojo.Academy">
+      </association>
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    teach_id, teach_create_time, teach_update_by, teach_update_time, teach_name, teach_sex, 
+    teach_mobile, teach_aca_id, teach_email, teach_nation, teach_birthday, teach_admission_time, 
+    teach_identity, teach_positional, teach_office, teach_delete
+  </sql>
+  <sql id="Blob_Column_List">
+    teach_create_by
+  </sql>
+
+</mapper>
