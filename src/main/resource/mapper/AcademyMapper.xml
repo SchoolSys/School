@@ -13,17 +13,6 @@
       <!-- 一个学院对应着一个学校 , 即一对一 本来想是一个学校对 多个学院的 后面因为学校这个类没有加 acad这个属性,就干脆用一对一了-->
       <association property="schoolId" column="acad_school_id"
                    javaType="com.school.pojo.School">
-          <id column="school_id" property="id" />
-          <result column="school_create_by" jdbcType="VARCHAR" property="createBy" />
-          <result column="school_create_time" jdbcType="VARCHAR" property="createTime" />
-          <result column="school_update_by" jdbcType="VARCHAR" property="updateBy" />
-          <result column="school_update_time" jdbcType="VARCHAR" property="updateTime" />
-          <result column="school_name" jdbcType="VARCHAR" property="name" />
-          <result column="school_address" jdbcType="VARCHAR" property="address" />
-          <result column="school_province" jdbcType="VARCHAR" property="province" />
-          <!-- 这里逆向工程将mediumtext转为了LongVarchar,就先放着-->
-          <result column="school_city" jdbcType="LONGVARCHAR" property="city" />
-          <result column="school_delete" jdbcType="TINYINT" property="delete" />
       </association>
   </resultMap>
 

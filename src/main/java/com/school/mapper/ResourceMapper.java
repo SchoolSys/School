@@ -1,9 +1,10 @@
 package com.school.mapper;
 
-import com.school.pojo.Resource;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
+/**
+* @Description: 资源接口(文章 视频)
+* @Author: Tonghuan
+* @Date: 2019/1/3
+*/
 public interface ResourceMapper {
 
 }
