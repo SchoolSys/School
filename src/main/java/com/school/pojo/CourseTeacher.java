@@ -73,12 +73,12 @@ public class CourseTeacher implements Serializable {
         this.courId = courId;
     }
 
-    public Teacher getTeaId() {
-        return teaId;
+    public Teacher getTeachId() {
+        return teachId;
     }
 
-    public void setTeaId(Teacher teaId) {
-        this.teaId = teaId;
+    public void setTeachId(Teacher teachId) {
+        this.teachId = teachId;
     }
 
     public Byte getDelete() {

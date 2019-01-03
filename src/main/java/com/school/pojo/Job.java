@@ -69,12 +69,12 @@ public class Job implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Teacher getTeaId() {
-        return teaId;
+    public Teacher getTeachId() {
+        return teachId;
     }
 
-    public void setTeaId(Teacher teaId) {
-        this.teaId = teaId;
+    public void setTeachId(Teacher teachId) {
+        this.teachId = teachId;
     }
 
     public Academy getAcaId() {
