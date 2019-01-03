@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Student">
+    <id column="stu_id" jdbcType="VARCHAR" property="id" />
+    <result column="stu_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="stu_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="stu_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="stu_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="stu_name" jdbcType="VARCHAR" property="name" />
+    <result column="stu_number" jdbcType="BIGINT" property="number" />
+    <result column="stu_sex" jdbcType="TINYINT" property="sex" />
+    <result column="stu_moblie" jdbcType="BIGINT" property="moblie" />
+    <result column="stu_nation" jdbcType="VARCHAR" property="nation" />
+    <result column="stu_birthday" jdbcType="VARCHAR" property="birthday" />
+    <!--<result column="stu_aca_id" jdbcType="VARCHAR" property="acaId" />-->
+    <result column="stu_admission_time" jdbcType="VARCHAR" property="admissionTime" />
+    <result column="stu_departure_time" jdbcType="VARCHAR" property="departureTime" />
+    <!--<result column="stu_class_id" jdbcType="VARCHAR" property="classId" />-->
+    <!--<result column="stu_major_id" jdbcType="VARCHAR" property="majorId" />-->
+    <result column="stu_identity" jdbcType="VARCHAR" property="identity" />
+    <result column="stu_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="acaId" column="stu_aca_id"
+                 javaType="com.school.pojo.Academy">
+
+    </association>
+
+    <association property="classId" column="stu_class_id"
+                 javaType="com.school.pojo.Class">
+
+    </association>
+    <association property="majorId" column="stu_major_id"
+                 javaType="com.school.pojo.Major">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    stu_id, stu_create_by, stu_create_time, stu_update_time, stu_update_by, stu_name, 
+    stu_number, stu_sex, stu_moblie, stu_nation, stu_birthday, stu_aca_id, stu_admission_time, 
+    stu_departure_time, stu_class_id, stu_major_id, stu_identity, stu_delete
+  </sql>
+
+</mapper>

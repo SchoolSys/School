@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ClassRoomConfigMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.ClassRoomConfig">
+    <id column="config_id" jdbcType="VARCHAR" property="id" />
+    <result column="config_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="config_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="config_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="config_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="config_start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="config_end_time" jdbcType="VARCHAR" property="endTime" />
+    <!--<result column="config_course_id" jdbcType="VARCHAR" property="courseId" />-->
+    <!--<result column="config_class_id" jdbcType="VARCHAR" property="classId" />-->
+    <result column="config_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="courseId" column="config_course_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+    <association property="classId" column="config_class_id"
+                 javaType="com.school.pojo.Class">
+
+    </association>
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    config_id, config_create_by, config_create_time, config_update_by, config_update_time, 
+    config_start_time, config_end_time, config_course_id, config_class_id, config_delete
+  </sql>
+</mapper>

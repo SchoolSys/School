@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ClassMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Class">
+    <id column="class_id" jdbcType="VARCHAR" property="id" />
+    <result column="class_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="class_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="class_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="class_update_tmie" jdbcType="VARCHAR" property="updateTmie" />
+    <!--<result column="class_preceptor_id" jdbcType="VARCHAR" property="preceptorId" />-->
+    <!--<result column="class_coach_id" jdbcType="VARCHAR" property="coachId" />-->
+    <result column="class_name" jdbcType="VARCHAR" property="name" />
+    <result column="class_number" jdbcType="INTEGER" property="number" />
+    <!--<result column="class_aca_id" jdbcType="VARCHAR" property="acaId" />-->
+    <result column="class_session" jdbcType="INTEGER" property="session" />
+    <result column="class_delete" jdbcType="TINYINT" property="delete" />
+    <association property="preceptorId" column="class_preceptor_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+    <association property="coachId" column="class_coach_id"
+                 javaType="com.school.pojo.Teacher">
+
+    </association>
+    <association property="acaId" column="class_aca_id"
+                 javaType="com.school.pojo.Academy">
+
+    </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    class_id, class_create_by, class_create_time, class_update_by, class_update_tmie, 
+    class_preceptor_id, class_coach_id, class_name, class_number, class_aca_id, class_session, 
+    class_delete
+  </sql>
+
+</mapper>

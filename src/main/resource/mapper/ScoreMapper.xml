@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ScoreMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Score">
+    <result column="score_id" jdbcType="VARCHAR" property="id" />
+    <result column="score_create_by" jdbcType="CHAR" property="createBy" />
+    <result column="score_create_name" jdbcType="CHAR" property="createName" />
+    <result column="score_update_by" jdbcType="CHAR" property="updateBy" />
+    <result column="score_update_time" jdbcType="CHAR" property="updateTime" />
+    <!--<result column="score_stu_id" jdbcType="VARCHAR" property="stuId" />-->
+    <!--<result column="score_cour_id" jdbcType="VARCHAR" property="courId" />-->
+    <result column="score_pea_grade" jdbcType="INTEGER" property="peaGrade" />
+    <result column="score_pnd_grade" jdbcType="INTEGER" property="pndGrade" />
+    <result column="score_syn_grade" jdbcType="INTEGER" property="synGrade" />
+    <result column="score_state" jdbcType="TINYINT" property="state" />
+    <result column="score_delete" jdbcType="TINYINT" property="delete" />
+    <association property="stuId" column="score_stu_id"
+                 javaType="com.school.pojo.Student">
+
+    </association>
+
+    <association property="courId" column="score_cour_id"
+                 javaType="com.school.pojo.CourseInfo">
+
+    </association>
+
+
+  </resultMap>
+  <sql id="Base_Column_List">
+    score_id, score_create_by, score_create_name, score_update_by, score_update_time, 
+    score_stu_id, score_cou_id, score_pea_grade, score_pnd_grade, score_syn_grade, score_state, 
+    score_delete
+  </sql>
+</mapper>

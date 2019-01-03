@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.UserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.UserRole">
+    <id column="urole_id" jdbcType="VARCHAR" property="id" />
+    <result column="urole_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="urole_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="urole_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="urole_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="urole_user_id" jdbcType="VARCHAR" property="userId" />-->
+    <!--<result column="urole_role_id" jdbcType="VARCHAR" property="roleId" />-->
+    <result column="urole_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="userId" column="urole_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+
+    <association property="roleId" column="urole_role_id"
+                 javaType="com.school.pojo.Role">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    urole_id, urole_create_by, urole_create_time, urole_update_by, urole_update_time, 
+    urole_u_id, urole_r_id, urole_delete
+  </sql>
+
+</mapper>

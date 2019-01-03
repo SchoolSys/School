@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ClassTeacherMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.ClassTeacher">
+    <id column="cteach_id" jdbcType="VARCHAR" property="id" />
+    <result column="cteach_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="cteach_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="cteach_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="cteach_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="cteach_class_id" jdbcType="VARCHAR" property="classId" />-->
+    <!--<result column="cteach_teach_id" jdbcType="VARCHAR" property="teachId" />-->
+    <result column="cteach_delete" jdbcType="TINYINT" property="delete" />
+
+      <association property="classId" column="cteach_cour_id"
+                   javaType="com.school.pojo.Class">
+
+      </association>
+
+      <association property="teachId" column="cteach_tea_id"
+                   javaType="com.school.pojo.Teacher">
+
+      </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    cteach_id, cteach_create_by, cteach_create_time, cteach_update_by, cteach_update_time, 
+    cteach_cour_id, cteach_tea_id, cteach_delete
+  </sql>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.ChannelMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Channel">
+    <id column="channel_id" jdbcType="VARCHAR" property="id" />
+    <result column="channel_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="channel_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="channel_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="channel_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="channel_name" jdbcType="VARCHAR" property="name" />
+    <result column="channel_state" jdbcType="VARCHAR" property="state" />
+    <result column="channel_delete" jdbcType="TINYINT" property="delete" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    channel_id, channel_create_by, channel_create_time, channel_update_by, channel_update_time, 
+    channel_name, channel_state, channel_delete
+  </sql>
+
+</mapper>

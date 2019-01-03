@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.FriendMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Friend">
+    <id column="friend_id" jdbcType="VARCHAR" property="id" />
+    <result column="friend_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="friend_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="friend_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="friend_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="friend_user_id" jdbcType="VARCHAR" property="userId" />-->
+    <!--<result column="friend_target_user_id" jdbcType="VARCHAR" property="targetUserId" />-->
+    <result column="friend_state" jdbcType="TINYINT" property="state" />
+    <result column="friend_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="userId" column="friend_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+
+    <association property="targetUserId" column="friend_target_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    friend_id, friend_create_by, friend_create_time, friend_update_by, friend_update_time, 
+    friend_user_id, friend_target_user_id, friend_state, friend_delete
+  </sql>
+
+</mapper>

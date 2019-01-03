@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.FollowMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.Follow">
+    <id column="follow_id" jdbcType="VARCHAR" property="id" />
+    <result column="follow_create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="follow_create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="follow_update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="follow_update_time" jdbcType="VARCHAR" property="updateTime" />
+    <!--<result column="follow_user_id" jdbcType="VARCHAR" property="userId" />-->
+    <!--<result column="follow_target_user_id" jdbcType="VARCHAR" property="targetUserId" />-->
+    <result column="follow_delete" jdbcType="TINYINT" property="delete" />
+
+    <association property="userId" column="follow_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+
+    <association property="targetUserId" column="follow_target_user_id"
+                 javaType="com.school.pojo.User">
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    follow_id, follow_create_by, follow_create_time, follow_update_by, follow_update_time, 
+    follow_user_id, follow_target_user_id, follow_delete
+  </sql>
+
+</mapper>
