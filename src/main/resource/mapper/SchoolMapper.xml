@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.school.mapper.AcademyMapper">
-  <resultMap id="BaseResultMap" type="com.school.pojo.Academy">
+<mapper namespace="com.school.mapper.SchoolMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.School">
     <id column="school_id" jdbcType="VARCHAR" property="id" />
     <result column="school_create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="school_create_time" jdbcType="VARCHAR" property="createTime" />
@@ -17,11 +17,8 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    acad_id, acad_create_by, acad_create_time, acad_update_by, acad_update_time, acad_name, 
-    acad_school_id, acad_delete
-  </sql>
-  <sql id="Blob_Column_List">
-    acad_address
+    school_id, school_create_by, school_create_time, school_update_by, school_update_time, school_name,
+   school_address,school_province,school_city, school_delete
   </sql>
 
 </mapper>

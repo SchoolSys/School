@@ -1,9 +1,10 @@
 package com.school.mapper;
 
-import com.school.pojo.Role;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
+/**
+* @Description: 角色接口
+* @Author: Tonghuan
+* @Date: 2019/1/3
+*/
 public interface RoleMapper {
 
 }

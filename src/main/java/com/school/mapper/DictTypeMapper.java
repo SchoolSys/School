@@ -1,9 +1,10 @@
 package com.school.mapper;
 
-import com.school.pojo.DictType;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
+/**
+* @Description: 数据字典接口
+* @Author: Tonghuan
+* @Date: 2019/1/3
+*/
 public interface DictTypeMapper {
 
 }
