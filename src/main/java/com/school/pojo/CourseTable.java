@@ -75,12 +75,12 @@ public class CourseTable implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public CourseInfo getCourseId() {
-        return courseId;
+    public CourseInfo getCourId() {
+        return courId;
     }
 
-    public void setCourseId(CourseInfo courseId) {
-        this.courseId = courseId;
+    public void setCourId(CourseInfo courId) {
+        this.courId = courId;
     }
 
     public Class getClassId() {
