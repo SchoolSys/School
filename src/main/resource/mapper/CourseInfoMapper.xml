@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.school.mapper.ClassInfoMapper">
-  <resultMap id="BaseResultMap" type="com.school.pojo.ClassInfo">
+<mapper namespace="com.school.mapper.CourseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.school.pojo.CourseInfo">
     <id column="cinfo_id" jdbcType="VARCHAR" property="id" />
     <result column="cinfo_create_by" jdbcType="VARCHAR" property="createBy" />
     <result column="cinfo_create_time" jdbcType="VARCHAR" property="createTime" />

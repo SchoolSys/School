@@ -20,7 +20,7 @@ USE `school`;
 -- ----------------------------
 -- Table structure for `dict_type`
 -- ----------------------------
-DROP TABLE IF EXISTS `dict`;
+DROP TABLE IF EXISTS `dict_type`;
 CREATE TABLE `dict_type` (
   `dict_id` varchar(36) NOT NULL COMMENT '数据字典类型Id|李童欢|2018-12-20',
   `dict_create_by` varchar(36) DEFAULT NULL COMMENT '创建人|李童欢|2018-12-20',
@@ -106,7 +106,7 @@ CREATE TABLE `sys_class` (
 -- ----------------------------
 -- Table structure for `sys_classroom_config`
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_class_config`;
+DROP TABLE IF EXISTS `sys_classrooom_config`;
 CREATE TABLE `sys_classroom_config` (
   `config_id` varchar(36) NOT NULL COMMENT '教室配置||李童欢|2018-12-20',
   `config_create_by` varchar(36) DEFAULT NULL COMMENT '创建人|李童欢|2018-12-20',
