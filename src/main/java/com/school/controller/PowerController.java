@@ -1,21 +1,21 @@
 package com.school.controller;
 
-import com.school.service.LessonAddressService;
 import com.school.service.MajorService;
+import com.school.service.PowerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 专业
+ * 权限
  * @author 杨德石
  * @date 2019/01/03
  */
 @RestController
-@RequestMapping("/api/major")
-public class MajorController {
+@RequestMapping("/api/power")
+public class PowerController {
 
     @Autowired
-    private MajorService majorService;
+    private PowerService powerService;
 
 }
