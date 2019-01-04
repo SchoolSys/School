@@ -23,7 +23,7 @@ public class TestInfo implements Serializable {
 
     private CourseInfo courName;
 
-    private Class startTime;
+    private String startTime;
 
     private String endTime;
 
@@ -87,11 +87,11 @@ public class TestInfo implements Serializable {
         this.courName = courName;
     }
 
-    public Class getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Class startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
