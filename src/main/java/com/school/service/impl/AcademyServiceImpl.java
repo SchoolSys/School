@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 * @Date: 2019/1/3
 */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class AcademyServiceImpl implements AcademyService{
 
     @Autowired
