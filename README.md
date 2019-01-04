@@ -2,9 +2,9 @@
 
 ## 部分项目需要使用的url
 * [solr生产环境](http://193.112.129.159:9080/solr/)
-* [solr开发环境](http://193.112.129.159:9080/solr/)
+* [solr开发环境]()
 * [activemq生产环境](http://193.112.129.159:8161/)
-* [activemq开发环境](http://193.112.129.159:8161/)
+* [activemq开发环境]()
 * [生产环境数据库]()
 * [开发环境数据库]()
 * [测试环境数据库]()
@@ -13,6 +13,12 @@
 ## LOG 规范
 * LOG 使用规范遵循 SLF4J 的规范
 * [Java日志全解析](https://zhuanlan.zhihu.com/p/24272450)
+
+## 部分细节注意点
+* 项目中日期为String类型，需要获取当前时间，直接调用DateUtils.newDate()即可。如果有需要新增的日期相关工具方法，都写在这里
+* 参数接收尽量都以Page接收，前端参数只要符合规范，Page都可以正常接收到。
+* Result为返回值，只要是提供JSON数据，全部用这个类作为返回值。
+* 项目中的String工具类为StringUtils的增强类，封装了更多的字符串相关操作，使用StringUtils时优先使用项目下的。
 
 ## 使用工具
 * 项目后端开发工具为IDEA，前端为VSCode，接口测试工具为postman
@@ -50,8 +56,8 @@ List<Object> list = Lists.newArrayList();
 10. 开发规范需要在遵守阿里巴巴的基础之上，遵循以上开发规范
 
 ## 参数规范
-1. 前端参数传递形式统一以application/x-www-form-urlencoded形式
-2. 后端统一以ExamResult包装json格式
+1. 前端参数传递形式统一以application/x-www-form-urlencoded形式，如有必要，可以传递JSON格式（需要与后端提前商议）
+2. 后端统一以Result包装json格式
 3. 除currentPage（当前页），currentCount（每页显示条数），sortName（排序列名），sortOrder（排序方式）
 以外，都用s_xxxx的格式进行传递
 4. 后端接收参数数量大时，使用HttpServletRequest request进行接收，接着将request封装到page的构造中

@@ -3,9 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
+    <!--生产环境-->
     <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://193.112.129.159:61616" />
     </bean>
+
+    <!--开发环境，准备在实验室搭建服务器-->
+    <!--<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://193.112.129.159:61616" />
+    </bean>-->
 
     <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
         <property name="targetConnectionFactory" ref="targetConnectionFactory" />

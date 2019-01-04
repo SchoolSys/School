@@ -1,5 +1,6 @@
 package com.school.utils;
 
+import com.google.common.collect.Lists;
 import com.school.constant.ResultConstant;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -16,7 +17,6 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -82,7 +82,7 @@ public class HttpClientUtil {
             HttpPost httpPost = new HttpPost(url);
             // 创建参数列表
             if (param != null) {
-                List<NameValuePair> paramList = new ArrayList<NameValuePair>();
+                List<NameValuePair> paramList = Lists.newArrayList();
                 for (String key : param.keySet()) {
                     paramList.add(new BasicNameValuePair(key, param.get(key)));
                 }

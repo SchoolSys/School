@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +25,8 @@ import java.util.regex.Pattern;
  * @date 2018/09/25
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
+
+    private static Pattern p = Pattern.compile("[A-Z]");
 
     /**
      * 获得用户远程地址
@@ -41,30 +43,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return remoteIp != null ? remoteIp : request.getRemoteAddr();
     }
 
-    public static String getFormatId(Long id, String prefix) {
-        return getFormatId(id, prefix, "000000000000");
-    }
-
-    public static String getFormatId(Long id, String prefix, String format) {
-        if (id == null) {
-            return null;
-        } else {
-            DecimalFormat decimalFormat = new DecimalFormat(format);
-            return prefix + decimalFormat.format(id);
-        }
-    }
-
-
-    public static String getReplaced(String str, List<String> beforeList, String after) {
-        String result = trim(str);
-        if (StringUtils.isNotBlank(result)) {
-            for (String before : beforeList) {
-                result = StringUtils.replace(result, before, after);
-            }
-        }
-        return result;
-    }
-
+    /**
+     * 将字符串切分后封装到List中
+     * @param str
+     * @param splitter
+     * @return
+     */
     public static List<String> getSplitList(String str, String splitter) {
         List<String> list = Lists.newArrayList();
         if (isNotBlank(str)) {
@@ -78,14 +62,11 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return list;
     }
 
-    public static String getSheetName(String name) {
-        if (isBlank(name)) {
-            return null;
-        } else {
-            return name.trim().replace("/", "").replace("\\", "").replace("?", "").replace("[", "").replace("]", "").replace("*", "");
-        }
-    }
-
+    /**
+     * 阿拉伯数字金额转中文大写金额
+     * @param money
+     * @return
+     */
     public static String getChineseMoney(BigDecimal money) {
         if (money != null) {
             String s = new DecimalFormat("#.00").format(money.abs());
@@ -134,25 +115,16 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         }
     }
 
-    /**
-     * 获取对应的下标字母
-     * @param index
-     * @return
-     */
-    public static String getExcelCellIndex(int index) {
-        StringBuilder rs = new StringBuilder();
-        while (index > 0) {
-            index--;
-            rs.insert(0, ((char) (index % 26 + 'A')));
-            index = (index - index % 26) / 26;
-        }
-        return rs.toString();
-    }
-
     public static String toString(Object obj) {
         return Objects.toString(obj, "");
     }
 
+    /**
+     * 增强equals
+     * @param obj1
+     * @param obj2
+     * @return
+     */
     public static Boolean equal(Object obj1, Object obj2) {
         return toString(obj1).equals(toString(obj2));
     }
@@ -192,20 +164,15 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return str.trim();
     }
 
+    /**
+     * 判断是否为url
+     * @param href
+     * @return
+     */
     public static Boolean isHref(String href) {
         boolean foundMatch;
         try {
             foundMatch = href.matches("(?sm)^https?://[-\\w+&@#/%=~_|$?!:,.\\\\*]+$");
-        } catch (Exception e) {
-            return false;
-        }
-        return foundMatch;
-    }
-
-    public static Boolean isGtZero(String number) {
-        boolean foundMatch;
-        try {
-            foundMatch = number.matches("^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$");
         } catch (Exception e) {
             return false;
         }
@@ -227,21 +194,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             return bankNumber.substring(0, 4) + "****" + bankNumber.substring(bankNumber.length() - 4);
         }
     }
-
-    /**
-     * 阿里云附件上传目录默认规则
-     *
-     * @param timeMillis 毫秒数
-     * @param pattern    匹配符
-     * @return String
-     */
-    public static String formatDate(long timeMillis, String pattern) {
-        DateFormat formatter = new SimpleDateFormat(pattern, Locale.CHINESE);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeMillis);
-        return formatter.format(calendar.getTime());
-    }
-
 
     /**
      * 校验微信公众号的格式 　微信号规则：微信账号仅支持6-20个字母、数字、下划线或减号，以字母开头。解释一下，只要是字母开头，可以是纯字母（hjqzHJQZhongjiqiezi），或字母数字混合
@@ -281,6 +233,52 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * 驼峰转下划线
+     * 用哪个都可以，上面那个因为有地方被引用了所以就不删除了
+     */
+    public static String upperTable(String str) {
+        // 字符串缓冲区
+        // 如果字符串包含 下划线
+        if (str.contains(BaseConstant.UNDER_LINE)) {
+            StringBuffer sbf = new StringBuffer();
+            // 按下划线来切割字符串为数组
+            String[] split = str.split("_");
+            // 循环数组操作其中的字符串
+            for (int i = 0, index = split.length; i < index; i++) {
+                // 递归调用本方法
+                String upperTable = upperTable(split[i]);
+                // 添加到字符串缓冲区
+                sbf.append(upperTable);
+            }
+            return sbf.toString();
+        }
+        // 返回
+        return str;
+    }
+
+    /**
+     * 下划线转驼峰
+     */
+    public static String upperCharToUnderLine(String param) {
+
+        if (param == null || "".equals(param)) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder(param);
+        Matcher mc = p.matcher(param);
+        int i = 0;
+        while (mc.find()) {
+            builder.replace(mc.start() + i, mc.end() + i, "_" + mc.group().toLowerCase());
+            i++;
+        }
+
+        if (BaseConstant.UNDER_LINE.equals(builder.charAt(0))) {
+            builder.deleteCharAt(0);
+        }
+        return builder.toString();
     }
 
     public static String clearUtf8bm4(String str) {
