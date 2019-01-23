@@ -24,7 +24,11 @@
 
   <sql id="Base_Column_List">
     urole_id, urole_create_by, urole_create_time, urole_update_by, urole_update_time, 
-    urole_u_id, urole_r_id, urole_delete
+    urole_user_id, urole_role_id, urole_delete
   </sql>
 
+  <insert id="insert" parameterType="com.school.pojo.UserRole">
+    INSERT INTO sys_user_role(<include refid="Base_Column_List"/>)
+    VALUES (#{id},#{createBy},#{createTime},#{updateBy},#{updateTime},#{userId.id},#{roleId.id},#{delete})
+  </insert>
 </mapper>

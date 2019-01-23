@@ -21,4 +21,8 @@
    school_address,school_province,school_city, school_delete
   </sql>
 
+  <insert id="insert" parameterType="com.school.pojo.School">
+    INSERT INTO sys_school(<include refid="Base_Column_List"/>)
+    VALUES (#{id},#{createBy},#{createTime},#{updateBy},#{updateTime},#{userId.id},#{roleI
+  </insert>
 </mapper>
