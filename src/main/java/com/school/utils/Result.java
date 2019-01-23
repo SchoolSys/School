@@ -63,11 +63,13 @@ public class Result implements Serializable {
         this.data = data;
     }
 
+
     public int getCode() {
         return code;
     }
 
     public void setCode(int code) {
+
         this.code = code;
     }
 
@@ -152,6 +154,7 @@ public class Result implements Serializable {
         }
     }
 
+
     @Override
     public String toString() {
         return "Result{" +
@@ -160,4 +163,5 @@ public class Result implements Serializable {
                 ", data=" + data +
                 '}';
     }
+
 }

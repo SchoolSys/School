@@ -17,6 +17,4 @@ public class AttenceInfoController {
 
     @Autowired
     private AttenceInfoService attenceInfoService;
-
-
 }

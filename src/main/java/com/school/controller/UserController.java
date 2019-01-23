@@ -1,5 +1,6 @@
 package com.school.controller;
 
+
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.school.jedis.JedisClient;
@@ -7,7 +8,7 @@ import com.school.service.UserService;
 import com.school.utils.HttpClientUtil;
 import com.school.utils.Result;
 import com.school.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,11 @@ import java.util.Map;
 
 /**
  * 用户
- *
  * @author 杨德石
  * @date 2019/01/03
  */
 @RestController
+
 @RequestMapping("/api/v1/user")
 public class UserController {
 

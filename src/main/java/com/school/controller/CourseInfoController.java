@@ -17,7 +17,4 @@ public class CourseInfoController {
     @Autowired
     private CourseInfoService courseInfoService;
 
-
-
-
 }
