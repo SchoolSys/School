@@ -21,8 +21,8 @@ public class Result implements Serializable {
      *
      * 200没问题。400有问题。其他状态请补充
      */
-    private Integer code;
-
+   // private Integer code;
+    private int code;
     /**
      * 响应文本提示信息
      */
@@ -63,11 +63,13 @@ public class Result implements Serializable {
         this.data = data;
     }
 
-    public Integer getCode() {
+
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
+
         this.code = code;
     }
 
@@ -150,6 +152,16 @@ public class Result implements Serializable {
         } catch (Exception e) {
             return null;
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 
 }

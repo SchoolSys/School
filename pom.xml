@@ -323,14 +323,6 @@
             <artifactId>spring-aspects</artifactId>
             <version>4.2.4.RELEASE</version>
         </dependency>
-
-        <!--二维码生成-->
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-
         <!--activemq-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -359,7 +351,23 @@
             <artifactId>solr-solrj</artifactId>
             <version>4.10.3</version>
         </dependency>
-
+        <!-- mahout -->
+        <dependency>
+            <groupId>org.apache.mahout</groupId>
+            <artifactId>mahout-core</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.mahout</groupId>
+            <artifactId>mahout-integration</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <!--jsonObject-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.28</version>
+        </dependency>
         <!--PinYin4J-->
         <dependency>
             <groupId>com.belerweb</groupId>
@@ -373,13 +381,11 @@
             <artifactId>core</artifactId>
             <version>3.3.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
             <version>3.1.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
