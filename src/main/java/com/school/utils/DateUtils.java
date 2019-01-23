@@ -14,11 +14,22 @@ import java.util.Date;
 public class DateUtils {
 
     /**
-     * 返回当前时间
+     * 返回当前时间，默认格式
      * @return
      */
     public static String newDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+        String time = sdf.format(new Date());
+        return time;
+    }
+
+    /**
+     * 返回当前时间，指定格式
+     * @param format
+     * @return
+     */
+    public static String newDate(String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
         String time = sdf.format(new Date());
         return time;
     }

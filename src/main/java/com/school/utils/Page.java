@@ -1,11 +1,11 @@
 package com.school.utils;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.school.constant.PageConstant;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +58,7 @@ public class Page<T> implements Serializable {
      * 模糊搜索的参数s_like_xxx
      * 多选框这种数组形式的参数s_in_xxx
      */
-    private Map<String, Object> params = new HashMap<String, Object>();
+    private Map<String, Object> params = Maps.newHashMap();
 
     /**
      * 搜索字段，不建议使用，如果只有一个匹配字段的话可以使用这个
@@ -68,7 +68,7 @@ public class Page<T> implements Serializable {
     /**
      * 每页显示的数据
      */
-    private List<T> list = new ArrayList<T>();
+    private List<T> list = Lists.newArrayList();
 
     public Page() {
 

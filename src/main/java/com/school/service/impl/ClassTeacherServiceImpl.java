@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  * * @create: 2019-01-03 15:29
  **/
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class ClassTeacherServiceImpl implements ClassTeacherService {
 
 }

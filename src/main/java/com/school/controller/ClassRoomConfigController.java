@@ -1,7 +1,8 @@
 package com.school.controller;
 
-import com.school.service.ChannelService;
+import com.school.service.ClassRoomConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 杨德石
  * @date 2019/01/03
  */
-@RestController("api/classRoomConfig/")
+@RestController
+@RequestMapping("/api/classRoomConfig")
 public class ClassRoomConfigController {
 
     @Autowired
-    private ChannelService channelService;
+    private ClassRoomConfigService classRoomConfigService;
 
 }

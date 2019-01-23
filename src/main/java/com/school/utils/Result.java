@@ -13,7 +13,7 @@ import java.util.List;
  * @author 杨德石
  * @date 2017/08/11
  */
-public class SchoolResult implements Serializable {
+public class Result implements Serializable {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -21,8 +21,8 @@ public class SchoolResult implements Serializable {
      *
      * 200没问题。400有问题。其他状态请补充
      */
-    private Integer status;
-
+   // private Integer code;
+    private int code;
     /**
      * 响应文本提示信息
      */
@@ -33,42 +33,42 @@ public class SchoolResult implements Serializable {
      */
     private Object data;
 
-    public static SchoolResult build(Integer status, String msg, Object data) {
-        return new SchoolResult(status, msg, data);
+    public static Result build(Integer code, String msg, Object data) {
+        return new Result(code, msg, data);
     }
 
-    public static SchoolResult ok(Object data) {
-        return new SchoolResult(data);
+    public static Result ok(Object data) {
+        return new Result(data);
     }
 
-    public static SchoolResult ok() {
-        return new SchoolResult(null);
+    public static Result ok() {
+        return new Result(null);
     }
 
-    public SchoolResult() {}
+    public Result() {}
 
-    public static SchoolResult build(Integer status, String msg) {
-        return new SchoolResult(status, msg, null);
+    public static Result build(Integer code, String msg) {
+        return new Result(code, msg, null);
     }
 
-    public SchoolResult(Integer status, String msg, Object data) {
-        this.status = status;
+    public Result(Integer code, String msg, Object data) {
+        this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public SchoolResult(Object data) {
-        this.status = 200;
+    public Result(Object data) {
+        this.code = 200;
         this.msg = "OK";
         this.data = data;
     }
 
-    public Integer getStatus() {
-        return status;
+    public int getCode() {
+        return code;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMsg() {
@@ -88,16 +88,16 @@ public class SchoolResult implements Serializable {
     }
 
     /**
-     * 将json结果集转化为TaotaoResult对象
+     * 将json结果集转化为Result对象
      *
      * @param jsonData json数据
-     * @param clazz    TaotaoResult中的object类型
+     * @param clazz    Result中的object类型
      * @return
      */
-    public static SchoolResult formatToPojo(String jsonData, Class<?> clazz) {
+    public static Result formatToPojo(String jsonData, Class<?> clazz) {
         try {
             if (clazz == null) {
-                return MAPPER.readValue(jsonData, SchoolResult.class);
+                return MAPPER.readValue(jsonData, Result.class);
             }
             JsonNode jsonNode = MAPPER.readTree(jsonData);
             JsonNode data = jsonNode.get("data");
@@ -109,7 +109,7 @@ public class SchoolResult implements Serializable {
                     obj = MAPPER.readValue(data.asText(), clazz);
                 }
             }
-            return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
+            return build(jsonNode.get("code").intValue(), jsonNode.get("msg").asText(), obj);
         } catch (Exception e) {
             return null;
         }
@@ -121,9 +121,9 @@ public class SchoolResult implements Serializable {
      * @param json
      * @return
      */
-    public static SchoolResult format(String json) {
+    public static Result format(String json) {
         try {
-            return MAPPER.readValue(json, SchoolResult.class);
+            return MAPPER.readValue(json, Result.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -137,7 +137,7 @@ public class SchoolResult implements Serializable {
      * @param clazz    集合中的类型
      * @return
      */
-    public static SchoolResult formatToList(String jsonData, Class<?> clazz) {
+    public static Result formatToList(String jsonData, Class<?> clazz) {
         try {
             JsonNode jsonNode = MAPPER.readTree(jsonData);
             JsonNode data = jsonNode.get("data");
@@ -146,10 +146,18 @@ public class SchoolResult implements Serializable {
                 obj = MAPPER.readValue(data.traverse(),
                         MAPPER.getTypeFactory().constructCollectionType(List.class, clazz));
             }
-            return build(jsonNode.get("status").intValue(), jsonNode.get("msg").asText(), obj);
+            return build(jsonNode.get("code").intValue(), jsonNode.get("msg").asText(), obj);
         } catch (Exception e) {
             return null;
         }
     }
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
