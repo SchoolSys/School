@@ -10,12 +10,24 @@
     <result column="role_role" jdbcType="VARCHAR" property="role" />
     <result column="role_delete" jdbcType="TINYINT" property="delete" />
 
-
   </resultMap>
 
   <sql id="Base_Column_List">
     role_id, role_create_by, role_create_time, role_update_by, role_update_time, role_role, 
     role_delete
   </sql>
+
+  <select id="selectRoleById" parameterType="string" resultMap="BaseResultMap">
+    select * from sys_role
+    <where>
+      role_id = #{id}
+    </where>
+  </select>
+
+  <insert id="insert" parameterType="com.school.pojo.Role">
+    INSERT into sys_role(<include refid="Base_Column_List"/>) values(
+    #{id},#{createBy},#{createTime},#{updateBy},#{updateTime},#{role},#{delete}
+    )
+  </insert>
 
 </mapper>

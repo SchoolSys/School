@@ -20,8 +20,13 @@
     acad_id, acad_create_by, acad_create_time, acad_update_by, acad_update_time, acad_name, 
     acad_school_id, acad_delete
   </sql>
-  <sql id="Blob_Column_List">
+
+  <sql id="all_column">
+    acad_id,
+    acad_school_id
+    acad_name,
     acad_address
   </sql>
+
 
 </mapper>

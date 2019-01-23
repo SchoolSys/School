@@ -12,8 +12,6 @@
     <result column="dict_name" jdbcType="VARCHAR" property="name" />
     <result column="dict_delete" jdbcType="TINYINT" property="delete" />
 
-
-
   </resultMap>
 
 
@@ -22,4 +20,73 @@
     dict_value, dict_name, dict_delete
   </sql>
 
+  <sql id="some_column">
+    dict_id,
+    dict_code,
+    dict_value,
+    dict_name
+  </sql>
+  <insert id="insert" parameterType="com.school.pojo.DictType">
+    INSERT INTO dict_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null"> dict_id, </if>
+      <if test="createBy != null"> dict_create_by, </if>
+      <if test="createTime != null"> dict_create_time, </if>
+      <if test="updateBy != null"> dict_update_by, </if>
+      <if test="updateTime != null"> dict_update_time, </if>
+      <if test="code != null"> dict_code, </if>
+      <if test="value != null"> dict_value, </if>
+      <if test="name != null"> dict_name, </if>
+      <if test="delete != null"> dict_delete, </if>
+    </trim>
+    VALUES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null"> #{id}, </if>
+      <if test="createBy != null"> #{createBy}, </if>
+      <if test="createTime != null"> #{createTime}, </if>
+      <if test="updateBy != null"> #{updateBy}, </if>
+      <if test="updateTime != null"> #{updateTime}, </if>
+      <if test="code != null"> #{code}, </if>
+      <if test="value != null"> #{value}, </if>
+      <if test="name != null"> #{name}, </if>
+      <if test="delete != null"> #{delete}, </if>
+    </trim>
+  </insert>
+
+
+
+  <update id="update" parameterType="com.school.pojo.DictType">
+    UPDATE dict_type
+    <set>
+      <if test="createBy != null"> dict_create_by = #{createBy}, </if>
+      <if test="createTime != null"> dict_create_time = #{createTime}, </if>
+      <if test="updateBy != null"> dict_update_by = #{updateBy}, </if>
+      <if test="code != null"> dict_code = #{code}, </if>
+      <if test="value != null"> dict_value = #{value}, </if>
+      <if test="name != null"> dict_name = #{name}, </if>
+      <if test="delete != null"> dict_delete = #{delete}, </if>
+    </set>
+    WHERE dict_id = #{id}
+  </update>
+
+
+  <!--<select id="select">-->
+    <!--SELECT <include refid="Base_Column_List"/>-->
+    <!--FROM dict_type-->
+    <!--<where>-->
+      <!--<if test="id != null"> AND id = #{id} </if>-->
+      <!--<if test="createBy != null"> AND create_by = #{createBy} </if>-->
+      <!--<if test="createTime != null"> AND create_time = #{createTime} </if>-->
+      <!--<if test="updateBy != null"> AND update_by = #{updateBy} </if>-->
+      <!--<if test="updateTime != null"> AND update_time = #{updateTime} </if>-->
+      <!--<if test="code != null"> AND code = #{code} </if>-->
+      <!--<if test="value != null"> AND value = #{value} </if>-->
+      <!--<if test="name != null"> AND name = #{name} </if>-->
+    <!--</where>-->
+    <!--LIMIT 1000-->
+  <!--</select>-->
+
+  <delete id="delete" parameterType="string">
+    UPDATE dict_type set dict_delete = 1 dict_id = #{id}
+  </delete>
 </mapper>
